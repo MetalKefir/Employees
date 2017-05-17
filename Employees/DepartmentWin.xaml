@@ -1,0 +1,43 @@
+﻿<Window x:Class="Employees.DepartmentWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Employees"
+        mc:Ignorable="d"
+        Title="DepartmentWin" Height="380.085" Width="440.466">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 8 20 8" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal">
+
+            <DataGrid x:Name="DepartmentsGrid" AutoGenerateColumns="False" Width="292">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Департамент" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ListBox x:Name="EmployeeList"  Width="138"/>
+
+        </StackPanel>
+
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="Update" Content="Обновить" Click="UpdateButton" />
+            <Button x:Name="Delete" Content="Удалить" Click="DeleteButton" />
+            <Button Content="Сотрудники" Click="EmployeeToList" />
+        </StackPanel>
+    </Grid>
+</Window>

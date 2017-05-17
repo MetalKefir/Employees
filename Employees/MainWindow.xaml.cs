@@ -26,37 +26,25 @@ namespace Employees
         public MainWindow()
         {
             InitializeComponent();
-
-            DB = new Models.EmployeesContext();
-            DB.Positions.Load(); // загружаем данные
-            PositionsGrid.ItemsSource = DB.Positions.Local.ToBindingList(); // устанавливаем привязку к кэшу
-
-            Closing += MainWindow_Closing;
         }
 
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void PositionsButton(object sender, RoutedEventArgs e)
         {
-            DB.Dispose();
+            PositionWin win = new PositionWin();
+            win.Show();
         }
 
-        private void UpdateButton(object sender, RoutedEventArgs e)
+        private void DepartmentsButton(object sender, RoutedEventArgs e)
         {
-            DB.SaveChanges();
+            DepartmentWin win = new DepartmentWin();
+            win.Show();
         }
 
-        private void DeleteButton(object sender, RoutedEventArgs e)
+        private void EmployeesButton(object sender, RoutedEventArgs e)
         {
-            if (PositionsGrid.SelectedItems.Count > 0)
-            {
-                for (int i = 0; i < PositionsGrid.SelectedItems.Count; i++)
-                {
-                    if (PositionsGrid.SelectedItems[i] is Models.Positions position)
-                    {
-                        DB.Positions.Remove(position);
-                    }
-                }
-            }
-            DB.SaveChanges();
+            EmployeeWin win = new EmployeeWin();
+            win.Show();
         }
+
     }
 }

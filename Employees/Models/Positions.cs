@@ -14,9 +14,9 @@ namespace Employees.Models
         [Key]
         public int ID { get; set; }
 
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
-        public ICollection<Employees> Employees { get; set; }
+        public virtual ICollection<Employees> Employees { get; set; }
         public Positions()
         {
             Employees = new List<Employees>();

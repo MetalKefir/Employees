@@ -16,20 +16,10 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <DataGrid AutoGenerateColumns="False" x:Name="PositionsGrid">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Должность" Width="100"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="Update" Content="Обновить" Click="UpdateButton" />
-            <Button x:Name="Delete" Content="Удалить" Click="DeleteButton" />
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Должности" Click="PositionsButton" />
+            <Button Content="Департаменты" Click="DepartmentsButton" />
+            <Button Content="Работники" Click="EmployeesButton" />
         </StackPanel>
     </Grid>
 </Window>
