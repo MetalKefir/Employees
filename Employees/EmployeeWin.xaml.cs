@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 namespace Employees
 {
     /// <summary>
@@ -29,17 +30,20 @@ namespace Employees
             DB.Employees.Load(); // загружаем данные
             EmployeesView.ItemsSource = DB.Employees.Local.ToBindingList(); // устанавливаем привязку к кэшу
 
-            Closing += MainWindow_Closing;
+            Closing += Window_Closing;
         }
 
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            DB.SaveChanges();
             DB.Dispose();
         }
 
         private void AddButton(object sender, RoutedEventArgs e)
         {
-            DB.SaveChanges();
+            AddEmployee win = new AddEmployee() {OwnerDB= DB };
+            win.Show();
+
         }
 
         private void DeleteButton(object sender, RoutedEventArgs e)
@@ -54,6 +58,63 @@ namespace Employees
                     }
                 }
             }
+        }
+
+        private void EditButton(object sender, RoutedEventArgs e)
+        {
+            EditEmployee win = new EditEmployee() { Employee = (EmployeesView.SelectedItem as Models.Employees) };
+            win.EmployeeEdit.DataContext = (EmployeesView.SelectedItem as Models.Employees);
+            win.Show();
+        }
+
+
+        private void AddContact(object sender, RoutedEventArgs e)
+        {
+            if (EmployeesView.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите элемент");
+                return;
+            }
+
+            if ((EmployeesView.SelectedItem as Models.Employees).Contact != null)
+            {
+                MessageBox.Show("У данного работника уже есть контакт");
+                return;
+            }
+
+            AddContact win = new AddContact() { EmpoyeeID = (EmployeesView.SelectedItem as Models.Employees).ID };
+            win.Show();
+        }
+
+        private void DeleteContact(object sender, RoutedEventArgs e)
+        {
+   
+            if ((EmployeesView.SelectedItem as Models.Employees).Contact == null)
+            {
+                MessageBox.Show("Контактов нет");
+                return;
+            }
+
+            (EmployeesView.SelectedItem as Models.Employees).Contact = null;
+        }
+
+        private void ViewContact(object sender, RoutedEventArgs e)
+        {
+            Models.Contacts contact = (EmployeesView.SelectedItem as Models.Employees).Contact;
+
+            if (contact == null)
+            {
+                ViewConact.Text = null;
+                MessageBox.Show("Контактов нет");
+                return;
+            }
+
+            ViewConact.Text = contact.ToString();
+        }
+
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
             DB.SaveChanges();
         }
     }

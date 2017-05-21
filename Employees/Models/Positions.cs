@@ -17,9 +17,15 @@ namespace Employees.Models
         public virtual string Name { get; set; }
 
         public virtual ICollection<Employees> Employees { get; set; }
+
         public Positions()
         {
             Employees = new List<Employees>();
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

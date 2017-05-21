@@ -24,17 +24,9 @@ namespace Employees.Models
         public int? DepartmentsID { get; set; }
         public virtual Departments Department { get; set; }
 
-        public virtual ICollection<PlacePreviousWork> PlacePreviousWork { get; set; }
 
-
-        public Salary Salary { get; set; }
-        public Contacts Contact { get; set; }
-
-
-        public Employees()
-        {
-            PlacePreviousWork = new List<PlacePreviousWork>();
-        }
+        public virtual Salary Salary { get; set; }
+        public virtual Contacts Contact { get; set; }
 
         public override string ToString()
         {

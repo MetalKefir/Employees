@@ -24,6 +24,20 @@ namespace Employees.Models
         public string Apartment { get; set; }
         public string Phone { get; set; }
 
-        public Employees EmployeesOf { get; set; }
+        public virtual Employees EmployeesOf { get; set; }
+
+        public override string ToString()
+        {
+            string str = " Страна:"+Country+"\n"+
+                            "Регион:"+Region+"\n"+
+                            "Область:"+Area+"\n"+
+                            "Населеный пункт:"+Locality+"\n"+
+                            "Улица:"+Street +"\n" +
+                            "Дом:"+House +"\n"+
+                            "Корпус:"+Housing+"\n"+
+                            "Квартира:"+Apartment+"\n"+
+                            "Телефон:"+Phone+"\n";
+            return str;
+        }
     }
 }

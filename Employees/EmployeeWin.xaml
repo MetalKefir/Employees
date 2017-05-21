@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="EmployeeWin" Height="474" Width="775.5">
+        Title="EmployeeWin" Height="787.5" Width="1126">
 
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 8 20 8" />
-            <Setter Property="Width" Value="100" />
+            <Setter Property="Width" Value="120" />
             <Setter Property="Height" Value="30" />
         </Style>
     </Window.Resources>
@@ -20,27 +20,53 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Width="828">
 
 
-        <ListView x:Name="EmployeesView" Margin="0,0,30,0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Имя" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Surname}" Header="Фамилия" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Patronymic}" Header="Отчество" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding DataBirth}" Header="Дата рождения" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding INN}" Header="ИНН" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Position.Name}" Header="Должность" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Department.Name}" Header="Отдел" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Salary.Pay}" Header="ЗП" Width="100"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                        <ListView x:Name="EmployeesView" Height="574" Margin="0,0,10,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Имя" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Surname}" Header="Фамилия" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Patronymic}" Header="Отчество" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding DataBirth, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата рождения" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding INN}" Header="ИНН" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Position.Name}" Header="Должность" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Department.Name}" Header="Отдел" Width="100"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Salary.Pay}" Header="ЗП" Width="100"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
 
 
-        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="Add" Content="Добавить" Click="AddButton" />
-            <Button x:Name="Delete" Content="Удалить" Click="DeleteButton" />
+                        <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Width="597" Height="184" Margin="0,0,216,0">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Height="55" Margin="133,0,99,0" Width="365">
+
+                                <Button x:Name="Edit" Content="Редактировать" Click="EditButton" Margin="0" />
+                                <Button x:Name="Add" Content="Добавить" Click="AddButton" Margin="0" />
+                                <Button x:Name="Delete" Content="Удалить" Click="DeleteButton" Margin="0" />
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Height="51" Margin="133,0,99,0" Width="365">
+
+                                <Button Content="Добавить контакт" Click="AddContact" Margin="0" />
+                                <Button Content="Удалить контакт" Click="DeleteContact" Margin="0" />
+                                <Button Content="Посмотреть контакт" Click="ViewContact" Margin="0" />
+
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="112,0,75,0" Width="410">
+                                <Button x:Name="Update" Content="Обновить" Click="Update_Click" Width="120"/>
+                            </StackPanel>
+                        
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock x:Name="ViewConact" HorizontalAlignment="Left" Height="573" VerticalAlignment="Top" Width="287"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

@@ -20,7 +20,6 @@ namespace Employees.Models
         public virtual DbSet<Contacts> Contacts { get; set; }
         public virtual DbSet<Departments> Departments { get; set; }
         public virtual DbSet<Positions> Positions { get; set; }
-        public virtual DbSet<PlacePreviousWork> PlacePreviousWork { get; set; }
         public virtual DbSet<Salary> Salary { get; set; }
 }
 }

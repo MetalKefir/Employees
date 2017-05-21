@@ -78,7 +78,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddContact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DepartmentWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,12 +102,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddContact.xaml.cs">
+      <DependentUpon>AddContact.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEmployee.xaml.cs">
+      <DependentUpon>AddEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DepartmentWin.xaml.cs">
       <DependentUpon>DepartmentWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditEmployee.xaml.cs">
+      <DependentUpon>EditEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeWin.xaml.cs">
       <DependentUpon>EmployeeWin.xaml</DependentUpon>
@@ -115,7 +136,6 @@
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\EmployeesContext.cs" />
     <Compile Include="Models\MyContextInitializer.cs" />
-    <Compile Include="Models\PlacePreviousWork.cs" />
     <Compile Include="Models\Positions.cs" />
     <Compile Include="Models\Salary.cs" />
     <Compile Include="PositionWin.xaml.cs">

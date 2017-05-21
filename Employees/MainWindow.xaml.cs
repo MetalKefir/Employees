@@ -21,7 +21,6 @@ namespace Employees
     /// </summary>
     public partial class MainWindow : Window
     {
-        Models.EmployeesContext DB;
 
         public MainWindow()
         {

@@ -18,6 +18,6 @@ namespace Employees.Models
 
         public int Pay { get; set; }
 
-        public Employees EmployeesOf { get; set; }
+        public virtual Employees EmployeesOf { get; set; }
     }
 }
