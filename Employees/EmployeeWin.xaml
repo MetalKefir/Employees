@@ -26,7 +26,7 @@
                     <StackPanel Orientation="Vertical" Width="828">
 
 
-                        <ListView x:Name="EmployeesView" Height="574" Margin="0,0,10,0">
+                        <ListView x:Name="EmployeesView" Height="574" Margin="0,0,10,0" SelectionMode="Single">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Имя" Width="100"/>

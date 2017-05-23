@@ -60,6 +60,11 @@ namespace Employees
         private void EmployeeToList(object sender, RoutedEventArgs e)
         {
             Models.Departments depart = DB.Departments.Find((DepartmentsGrid.SelectedItem as Models.Departments).ID);
+            if (pos.Employees == null)
+            {
+                MessageBox.Show("Нет сотрудников");
+                return;
+            }
             EmployeeList.ItemsSource = depart.Employees.ToList();
            
         }
