@@ -62,7 +62,7 @@ namespace Employees
 
         private void EditButton(object sender, RoutedEventArgs e)
         {
-            EditEmployee win = new EditEmployee() { Employee = (EmployeesView.SelectedItem as Models.Employees) };
+            EditEmployee win = new EditEmployee() { Employee = (EmployeesView.SelectedItem as Models.Employees), OwnerDB = DB };
             win.EmployeeEdit.DataContext = (EmployeesView.SelectedItem as Models.Employees);
             win.Show();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="EditEmployee" Height="300" Width="300">
+        Title="EditEmployee" Height="397.734" Width="284.703">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -13,6 +13,18 @@
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="30" />
         </Style>
+        
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={RelativeSource Self},
+                            Path=(Validation.Errors)[0].ErrorContent}" />
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
     <Grid>
@@ -24,19 +36,21 @@
 
         <StackPanel x:Name="EmployeeEdit">
             <TextBlock Text="Имя"/>
-            <TextBox x:Name="Name" Text="{Binding Path=Name, Mode=OneWay}"/>
+            <TextBox x:Name="Name" Text="{Binding Path=Name, Mode=OneWay, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Фамилия"/>
-            <TextBox x:Name="Surname" Text="{Binding Path=Surname, Mode=OneWay}"/>
+            <TextBox x:Name="Surname" Text="{Binding Path=Surname, Mode=OneWay, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Отчество"/>
-            <TextBox x:Name="Patronymic" Text="{Binding Path=Patronymic, Mode=OneWay}"/>
+            <TextBox x:Name="Patronymic" Text="{Binding Path=Patronymic, Mode=OneWay, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Дата Рождения"/>
-            <DatePicker x:Name="DateBirth" Text="{Binding Path=DateBirth, Mode=OneWay}"/>
+            <DatePicker x:Name="DateBirth" Text="{Binding Path=DateBirth.DisplayDate, Mode=OneWay, StringFormat=\{0:dd.MM.yyyy\}}"/>
             <TextBlock Text="ИНН"/>
             <TextBox x:Name="INN" Text="{Binding Path=INN, Mode=OneWay}"/>
+            <TextBlock Text="Зарплата"/>
+            <TextBox x:Name="Salary" Text="{Binding Path=Salary.Pay, Mode=OneWay, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Отдел"/>
-            <ComboBox x:Name="Department" DisplayMemberPath="Name" SelectedItem="{Binding Department, Mode=OneWay}"/>
+            <ComboBox x:Name="Department" DisplayMemberPath="Name"/>
             <TextBlock Text="Должность"/>
-            <ComboBox x:Name="Position" DisplayMemberPath="Name" SelectedItem="{Binding Position, Mode=OneWay}"/>
+            <ComboBox x:Name="Position" DisplayMemberPath="Name"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">

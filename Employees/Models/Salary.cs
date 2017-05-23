@@ -16,7 +16,7 @@ namespace Employees.Models
         [ForeignKey("EmployeesOf")]
         public int ID { get; set; }
 
-        public int Pay { get; set; }
+        public int? Pay { get; set; }
 
         public virtual Employees EmployeesOf { get; set; }
     }
