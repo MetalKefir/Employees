@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="439" Width="616">
+        Title="Главная" Height="439" Width="616">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -18,7 +18,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Content="Должности" Click="PositionsButton" />
-            <Button Content="Департаменты" Click="DepartmentsButton" />
+            <Button Content="Отделы" Click="DepartmentsButton" />
             <Button Content="Работники" Click="EmployeesButton" />
         </StackPanel>
     </Grid>

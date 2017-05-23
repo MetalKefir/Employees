@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="AddEmployee" Height="394.102" Width="277.26">
+        Title="Добвление" Height="394.102" Width="277.26">
 
     <Window.Resources>
         <Style TargetType="Button">

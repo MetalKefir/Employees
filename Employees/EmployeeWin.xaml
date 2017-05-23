@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="EmployeeWin" Height="787.5" Width="1126">
+        Title="Сотудники" Height="787.5" Width="1126">
 
     <Window.Resources>
         <Style TargetType="Button">

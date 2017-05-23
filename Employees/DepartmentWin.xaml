@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="DepartmentWin" Height="380.085" Width="440.466">
+        Title="Отделы" Height="380.085" Width="440.466">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 8 20 8" />

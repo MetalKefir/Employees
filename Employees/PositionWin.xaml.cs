@@ -61,7 +61,7 @@ namespace Employees
         private void EmployeeToList(object sender, RoutedEventArgs e)
         {
             Models.Positions pos= DB.Positions.Find((PositionsGrid.SelectedItem as Models.Positions).ID);
-            if (pos.Employees == null)
+            if (pos.Employees.Count == 0)
             {
                 MessageBox.Show("Нет сотрудников");
                 return;

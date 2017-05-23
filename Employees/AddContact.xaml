@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Employees"
         mc:Ignorable="d"
-        Title="AddContact" Height="389.67" Width="276.127">
+        Title="Добавление контакта" Height="389.67" Width="276.127">
    
     <Window.Resources>
         <Style TargetType="Button">
