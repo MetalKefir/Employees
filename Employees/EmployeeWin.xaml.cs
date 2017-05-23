@@ -82,7 +82,7 @@ namespace Employees
                 return;
             }
 
-            AddContact win = new AddContact() { EmpoyeeID = (EmployeesView.SelectedItem as Models.Employees).ID };
+            AddContact win = new AddContact() { EmpoyeeID = (EmployeesView.SelectedItem as Models.Employees).ID, OwnerDB = DB };
             win.Show();
         }
 

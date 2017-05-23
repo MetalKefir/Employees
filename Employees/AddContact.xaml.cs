@@ -20,9 +20,10 @@ namespace Employees
     /// </summary>
     public partial class AddContact : Window
     {
-        private Models.EmployeesContext DB;
+        public Models.EmployeesContext OwnerDB;
         public int EmpoyeeID { get; set; }
         Models.Contacts Contact { get; set; }
+
         public AddContact()
         {
             InitializeComponent();
@@ -33,15 +34,24 @@ namespace Employees
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            DB = new Models.EmployeesContext();
-            var employee = DB.Employees.Find(EmpoyeeID);
+            if (Validation.GetHasError(Country) || Validation.GetHasError(Region) || Validation.GetHasError(Area)
+                || Validation.GetHasError(Locality) || Validation.GetHasError(Street) || Validation.GetHasError(House) || Validation.GetHasError(Housing) 
+                || Validation.GetHasError(Apartament) || Validation.GetHasError(Phnoe))
+            {
+                MessageBox.Show("Ошибки при заполнение полей");
+                return;
+            }
+
+                var employee = OwnerDB.Employees.Find(EmpoyeeID);
 
             Contact.EmployeesOf = employee;
-            DB.Contacts.Add(Contact);
+            OwnerDB.Contacts.Add(Contact);
 
             employee.Contact = Contact;
 
-            DB.SaveChanges();
+            OwnerDB.SaveChanges();
+
+            Close();
         }
     }
 

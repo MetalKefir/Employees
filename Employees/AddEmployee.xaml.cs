@@ -42,8 +42,8 @@ namespace Employees
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if(Name.ToolTip != null || Surname.ToolTip != null || Patronymic.ToolTip != null 
-                || INN.ToolTip != null || Salary.ToolTip != null || Position.SelectedItem ==null || Department.SelectedItem == null)
+            if(Validation.GetHasError(Name) || Validation.GetHasError(Surname) || Validation.GetHasError(Patronymic)
+                || Validation.GetHasError(INN) || Validation.GetHasError(Salary) || Position.SelectedItem ==null || Department.SelectedItem == null)
             {
                 MessageBox.Show("Ошибки при заполнение полей");
                 return;

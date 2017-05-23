@@ -13,6 +13,18 @@
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="30" />
         </Style>
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={RelativeSource Self},
+                            Path=(Validation.Errors)[0].ErrorContent}" />
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
     
     <Grid>
@@ -24,23 +36,23 @@
 
         <StackPanel Grid.Row="0">
             <TextBlock Text="Страна"/>
-            <TextBox Text="{Binding Country}"/>
+            <TextBox x:Name="Country" Text="{Binding Country, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Регион"/>
-            <TextBox Text="{Binding Region}"/>
+            <TextBox x:Name="Region" Text="{Binding Region, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Район"/>
-            <TextBox Text="{Binding Area}"/>
+            <TextBox x:Name="Area" Text="{Binding Area, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Населеный пункт"/>
-            <TextBox Text="{Binding Locality}"/>
+            <TextBox x:Name="Locality" Text="{Binding Locality, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Улица"/>
-            <TextBox Text="{Binding Street}"/>
+            <TextBox x:Name="Street" Text="{Binding Street, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Дом"/>
-            <TextBox Text="{Binding House}"/>
+            <TextBox x:Name="House" Text="{Binding House, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Корпус"/>
-            <TextBox Text="{Binding Housing}"/>
+            <TextBox x:Name="Housing" Text="{Binding Housing, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Квартира"/>
-            <TextBox Text="{Binding Apartment}"/>
+            <TextBox x:Name="Apartament" Text="{Binding Apartment, ValidatesOnDataErrors=True}"/>
             <TextBlock Text="Телефон"/>
-            <TextBox Text="{Binding Phone}"/>
+            <TextBox x:Name="Phnoe" Text="{Binding Phone, ValidatesOnDataErrors=True}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">

@@ -10,8 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace Employees.Models
 {
-    using System.ComponentModel;
-    using System.Text.RegularExpressions;
+
 
     public partial class Employees : IDataErrorInfo
     {
